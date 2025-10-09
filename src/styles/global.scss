@@ -1,0 +1,38 @@
+@use "../styles/variables" as vars;
+
+body {
+  margin: 0;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #282a36;
+  transition: margin-left 0.3s ease;
+  overflow-x: hidden;
+}
+
+body.menu-open {
+  margin-left: 20rem;
+}
+
+* {
+  max-width: 100%;
+  font-family: "Fira Code", monospace;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100%;
+  min-width: 340px;
+  margin: 0 auto;
+}
+
+.menu-open-body {
+  margin-left: 20rem;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  .menu-open-body {
+    margin-left: 0; 
+  }
+}

@@ -1,0 +1,45 @@
+.flashcard-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.flashcard {
+  width: 15rem;
+  min-height: 8rem;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard > div {
+  width: 100%;
+  min-height: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #fff;
+  background-color: #282a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+  position: absolute;
+}
+
+.flashcard .front {
+  transform: rotateY(0deg);
+}
+
+.flashcard.flipped .front {
+  transform: rotateY(180deg);
+}
+
+.flashcard .back {
+  transform: rotateY(180deg);
+}
+
+.flashcard.flipped .back {
+  transform: rotateY(0deg);
+}

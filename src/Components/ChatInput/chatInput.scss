@@ -1,0 +1,77 @@
+@use "../../styles/variables" as vars;
+
+.user-wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282a36;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+  max-width: 100%;
+  background: vars.$light-black;
+  border: 1px solid vars.$gray;
+  min-height: 20rem;
+  max-height: 40rem;
+  border-radius: vars.$radius-lg;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.user-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: transparent;
+  min-height: 15rem;
+  max-height: 25rem;
+  color: vars.$white;
+  resize: none;
+  line-height: 1.4;
+  overflow-y: auto;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: vars.$gray-dark;
+  }
+}
+
+.send-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: vars.$green;
+  color: vars.$black;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background-color: vars.$green;
+  }
+
+  &:disabled {
+    background-color: vars.$gray-dark;
+    color: vars.$white;
+    cursor: not-allowed;
+  }
+}

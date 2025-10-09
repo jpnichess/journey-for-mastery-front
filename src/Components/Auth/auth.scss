@@ -1,0 +1,31 @@
+@use "../../styles/variables" as vars;
+
+.login_btn {
+  width: auto;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  border: none;
+  border-radius: vars.$radius-sm;
+  background-color: vars.$light-gray;
+  color: vars.$green;
+  cursor: pointer;
+}
+
+.logout_btn {
+  width: auto;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  gap: 0.5rem;
+  border: none;
+  border-radius: vars.$radius-sm;
+  background-color: vars.$light-gray;
+  color: vars.$green;
+  cursor: pointer;
+}
