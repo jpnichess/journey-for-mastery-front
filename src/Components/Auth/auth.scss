@@ -2,22 +2,25 @@
 
 .login_btn {
   width: auto;
-  height: 1.8rem;
+  height: 2rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.90rem;
   border: none;
   border-radius: vars.$radius-sm;
-  background-color: vars.$light-gray;
-  color: vars.$green;
+  background-color: vars.$white;
+  color: vars.$purple;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .logout_btn {
   width: auto;
-  height: 1.8rem;
+  height: 2rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +28,8 @@
   gap: 0.5rem;
   border: none;
   border-radius: vars.$radius-sm;
-  background-color: vars.$light-gray;
-  color: vars.$green;
+  background-color: vars.$white;
+  color: vars.$purple;
   cursor: pointer;
+  font-weight: 500;
 }

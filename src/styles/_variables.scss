@@ -1,5 +1,6 @@
 // COLOR
-$white: #f8f8f2;
+$white: #fbfbf9;
+$background: #f1f1f1;
 $black: #15131f;
 $gray: #6272A4;
 $light-gray: #44475a;
@@ -8,11 +9,12 @@ $red: #b11b26;
 $overlay: rgba(0, 0, 0, 0.4);
 $light-black: #23212d;
 $green: #50FA7B;
-$blue: #67bed9;
+$blue: #6272a4;
 $dark-purple: #2a2640;
 $pink: #FF79C6;
 $orange: #FFB86C;
-$purple: #BD93F9;
+$purple: #8466ef;
+$light-purple: #847afe;
 
 // Sizes
 $w-full: 100%;
@@ -24,7 +26,6 @@ $category-img-height: 190px;
 $dot-size: 6px;
 
 $breakpoint-mobile: 768px;
-
 
 // Margin
 $margin-small: 0.5rem;
@@ -49,4 +50,4 @@ $font-2xl: 2rem;
 // Radius
 $radius-sm: 0.3rem;
 $radius-md: 0.5rem;
-$radius-lg: 12px;
+$radius-lg: 5rem;

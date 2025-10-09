@@ -9,7 +9,7 @@ import { auth, db } from "./Components/Firebase/FirebaseConfig";
 import type { User } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import StudyHistory from "./Components/Menu/StudyHistory";
+// import StudyHistory from "./Components/Menu/StudyHistory";
 
 function App() {
   const [material, setMaterial] = useState<string>("");
@@ -28,8 +28,10 @@ function App() {
   // Ao enviar o material
   const handleSendMaterial = async (text: string) => {
     setMaterial(text);
-
-    if (!user) return;
+    
+    if (!user){
+      alert("Entre com sua conta do Google para começar seus estudos.")
+    }
 
     // Cria um novo contentId
     const newContentId = uuidv4();
@@ -68,8 +70,6 @@ function App() {
 />
 
       <main>
-        <h1>Seção de Flashcards</h1>
-
         {/* Input do usuário */}
         <ChatInput onSend={handleSendMaterial} />
 

@@ -2,11 +2,12 @@ import { useState } from "react";
 import "./flashcards.scss";
 
 interface FlashcardCardProps {
-  pergunta: string;
-  resposta: string;
+  question: string;
+  answer: string;
+  color?: string; 
 }
 
-function Cards({ pergunta, resposta }: FlashcardCardProps) {
+function Cards({ question, answer, color }: FlashcardCardProps) {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -14,8 +15,10 @@ function Cards({ pergunta, resposta }: FlashcardCardProps) {
       className={`flashcard ${flipped ? "flipped" : ""}`}
       onClick={() => setFlipped(!flipped)}
     >
-      <div className="front">{pergunta}</div>
-      <div className="back">{resposta}</div>
+      <div className="ticket" style={{ backgroundColor: color }}>
+        <div className="front">{question}</div>
+        <div className="back">{answer}</div>
+      </div>
     </div>
   );
 }

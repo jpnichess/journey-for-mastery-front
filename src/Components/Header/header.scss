@@ -7,9 +7,9 @@ header {
   width: vars.$w-full;
   height: vars.$header-height;
   z-index: 10;
-  background-color: #282a36;
+  background-color: vars.$background;
   transition: background-color 0.3s ease;
-  border-bottom: 1px solid vars.$light-gray;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 
   .header-wrapper {
     max-width: 100%;
@@ -26,28 +26,20 @@ header {
 
 .menu-button {
   border: none;
-  background-color: vars.$light-gray;
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 2rem;
   padding: 0.2rem;
   width: auto;
-  height: 1.8rem;
+  height: 2rem;
   align-items: center;
   justify-content: center;
   display: flex;
   border-radius: vars.$radius-md;
-  color: vars.$pink;
+  color: vars.$purple;
+  background-color: vars.$white;
 }
 
-.title {
-  color: vars.$white;
-  background-color: vars.$light-gray;
-  width: auto;
-  padding: 0.5rem;
-  align-items: center;
-  display: flex;
-  height: 1.8rem;
-  justify-content: center;
-  border-radius: vars.$radius-sm;
-  font-size: 1.6rem;
+.logo {
+  width: 9.5rem;
+  height: auto;
 }

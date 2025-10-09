@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { IoReorderThree } from "react-icons/io5";
 import StudyHistory from "../Menu/StudyHistory";
 import { auth } from "../Firebase/FirebaseConfig";
+import logo from "../../../assets/jfm-logo.png";
 
 interface Conversation {
   id: string;
@@ -50,7 +51,9 @@ export default function Header() {
         <button className="menu-button" onClick={() => setOpenMenu(!openMenu)}>
           <IoReorderThree />
         </button>
-        <h1 className="title">Chat JP</h1>
+        <h1 className="logo">
+          <img src={logo} alt="" />
+        </h1>
         <div className="login-section">
           {currentUser ? <Logout user={currentUser} /> : <Login />}
         </div>

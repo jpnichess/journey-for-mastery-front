@@ -1,13 +1,25 @@
+@use "../../styles/variables" as vars;
+
 .flashcard-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  width: 60%;
+  align-items: center;
+}
+
+.flashcard-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
 }
 
 .flashcard {
-  width: 15rem;
-  min-height: 8rem;
+  width: 18rem;
+  height: 10rem;
   perspective: 1000px;
   cursor: pointer;
 }
@@ -15,17 +27,20 @@
 .flashcard > div {
   width: 100%;
   min-height: 100%;
-  border-radius: 0.5rem;
   padding: 1rem;
   color: #fff;
-  background-color: #282a36;
+  background: var(--card-bg, #282a36); 
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   backface-visibility: hidden;
-  transition: transform 0.5s;
+  transition:
+    transform 0.5s,
+    background 0.4s ease;
   position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .flashcard .front {

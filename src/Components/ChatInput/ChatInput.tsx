@@ -25,7 +25,6 @@ function ChatInput({ onSend }: { onSend: (msg: string) => void }) {
     }
 
     onSend(trimmed);
-    setInput("");
     return true;
   };
 
