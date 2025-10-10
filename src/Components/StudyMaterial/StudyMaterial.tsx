@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import FlashcardList from "../FlashCards/FlashcardList";
 import Overview from "../Overview/Overview";
 import Chat from "../Chat/Chat";
-import { useState } from "react";
 import "./simulate.scss";
 
 interface StudyMaterialProps {
@@ -16,17 +15,11 @@ export default function StudyMaterial({
   material,
   userId,
   contentId,
-  buttonLabel = "Ir para Simulado",
 }: StudyMaterialProps) {
   const navigate = useNavigate();
-  const [difficulty, setDifficulty] = useState<
-    "easy" | "medium" | "hard" | null
-  >(null);
 
   const handleNavigateAndGenerate = (level: "easy" | "medium" | "hard") => {
     if (!userId || !contentId || !material) return;
-
-    setDifficulty(level);
 
     const query = new URLSearchParams();
     query.set("userId", userId);

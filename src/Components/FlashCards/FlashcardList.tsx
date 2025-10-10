@@ -9,6 +9,8 @@ interface Flashcard {
 
 interface FlashcardListProps {
   text: string;
+  userId: string;
+  contentId: string;
 }
 
 function FlashcardList({ text }: FlashcardListProps) {
