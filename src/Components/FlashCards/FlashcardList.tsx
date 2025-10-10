@@ -25,7 +25,7 @@ function FlashcardList({ text }: FlashcardListProps) {
 
       try {
         const response = await fetch(
-          "http://localhost:3000/generate-flashcards",
+          "https://chatbot-api-wz81.onrender.com/generate-flashcards",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -34,7 +34,7 @@ Conteúdo a ser resumido:
 "${text}"
 `;
 
-        const response = await fetch("http://localhost:3000/overview", {
+        const response = await fetch("https://chatbot-api-wz81.onrender.com/overview", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

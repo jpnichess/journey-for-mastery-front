@@ -47,7 +47,7 @@ export default function Chat({ userId, contentId }: ChatProps) {
     setMessages((prev) => [...prev, { id: botId, text: "", sender: "bot" }]);
 
     try {
-      const res = await fetch("http://localhost:3000/stream-chat", {
+      const res = await fetch("https://chatbot-api-wz81.onrender.com/stream-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: trimmed, sessionId }),
