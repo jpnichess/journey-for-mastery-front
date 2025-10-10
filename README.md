@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Journey For Mastery (JFM)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Journey For Mastery (JFM) é uma plataforma de estudos baseada em Inteligência Artificial, projetada para ajudar os usuários a absorverem e praticarem conteúdos extensos de forma interativa e personalizada.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Sobre o Projeto
 
-## React Compiler
+A proposta do JFM é permitir que o usuário insira um grande texto ou conteúdo detalhado (por exemplo, um artigo sobre Brocas e Machos de Matrizaria). A inteligência artificial do sistema então:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Analisa e compreende profundamente o conteúdo fornecido;
+- Gera automaticamente **FlashCards** baseados nesse conteúdo, para facilitar a memorização;
+- Cria um **simulado com 10 perguntas** que cobrem os principais pontos do material fornecido, permitindo que o usuário teste seus conhecimentos.
 
-## Expanding the ESLint configuration
+Dessa forma, o JFM transforma textos complexos em ferramentas de estudo dinâmicas e eficientes, otimizando o aprendizado.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 💡 Funcionalidades Principais
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Input de grandes volumes de texto como base de estudo
+- Análise inteligente do conteúdo pelo modelo de IA
+- Geração automática de FlashCards para revisão rápida
+- Criação de simulados personalizados com questões sobre o conteúdo
+- Interface intuitiva para facilitar o processo de estudo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tecnologias Utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*(Aqui você pode listar as tecnologias, frameworks e bibliotecas usadas, por exemplo:)*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Backend em Node.js com Express
+- Integração com API de IA  Google Gemini
+- Banco de dados para armazenar conteúdos e usuários
+- Frontend em React TS
+
+---
+
+## 📚 Como Usar
+
+1. Insira um texto ou conteúdo extenso na plataforma.
+2. Aguarde a IA processar e analisar o conteúdo.
+3. Visualize os FlashCards gerados automaticamente.
+4. Faça o simulado de 10 perguntas para testar seu conhecimento.
+5. Repita quantas vezes desejar com novos conteúdos.
+
+---
+
+## ✨ Futuras Melhorias
+
+- Adição de suporte a diferentes formatos de conteúdo (PDF, links, etc)
+- Sistema de ranking e progresso dos usuários
+- Personalização do nível de dificuldade das perguntas
+- Exportação dos FlashCards para apps de estudo externos
+- Componente de histórico de estudos
+  
+---
+
+Acesse o projeto em:
+https://journey-for-mastery.vercel.app/
