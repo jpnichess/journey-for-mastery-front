@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-wrapper">
-        <a href="" className="about-section">Sobre</a>
+        <a href="https://journey-for-mastery-k43g.vercel.app/" className="about-section">Sobre</a>
 
         <h1 className="logo">
           <img src={logo} alt="Logo JFM" />
