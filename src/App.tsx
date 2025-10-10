@@ -6,10 +6,11 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import Header from "./Components/Header/Header";
 import ChatInput from "./Components/ChatInput/ChatInput";
 import StudyMaterial from "./Components/StudyMaterial/StudyMaterial";
+import type { User } from "firebase/auth";
 
 function App() {
   const [material, setMaterial] = useState("");
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [contentId, setContentId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -36,12 +37,7 @@ function App() {
 
   return (
     <>
-      <Header
-        user={user}
-        material={material}
-        setMaterial={setMaterial}
-        setContentId={setContentId}
-      />
+      <Header/>
       <main>
         <ChatInput onSend={handleSendMaterial} />
         {material && contentId && user && (

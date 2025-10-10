@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { auth } from "../Firebase/FirebaseConfig";
 import logo from "../../../assets/jfm-logo.png";
 
+
 export default function Header() {
   const [currentUser, setCurrentUser] = useState(auth.currentUser);
 
@@ -12,7 +13,6 @@ export default function Header() {
     const unsubscribe = auth.onAuthStateChanged((user) => setCurrentUser(user));
     return () => unsubscribe();
   }, []);
-
 
   return (
     <header className="header">
