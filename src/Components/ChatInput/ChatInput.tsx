@@ -42,6 +42,14 @@ function ChatInput({ onSend }: { onSend: (msg: string) => void }) {
 
   return (
     <div className="user-part">
+      <div className="promo-div">
+        <h3 className="promo-title">
+          Submit your content and start your <br />
+          <span className="promo-word word-1">Journey</span>
+          <span className="promo-word word-2">For</span>
+          <span className="promo-word word-3">Mastery</span>
+        </h3>
+      </div>
       <form onSubmit={onFormSubmit} className="user-form">
         <textarea
           ref={textareaRef}

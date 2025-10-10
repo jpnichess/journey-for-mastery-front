@@ -4,20 +4,21 @@ import "./flashcards.scss";
 interface FlashcardCardProps {
   question: string;
   answer: string;
-  color?: string; 
+  color?: string;
 }
 
 function Cards({ question, answer, color }: FlashcardCardProps) {
   const [flipped, setFlipped] = useState(false);
 
   return (
-    <div
-      className={`flashcard ${flipped ? "flipped" : ""}`}
-      onClick={() => setFlipped(!flipped)}
-    >
-      <div className="ticket" style={{ backgroundColor: color }}>
-        <div className="front">{question}</div>
-        <div className="back">{answer}</div>
+    <div className="flashcard" onClick={() => setFlipped(!flipped)}>
+      <div className={`flashcard-inner ${flipped ? "flipped" : ""}`}>
+        <div className="front" style={{ backgroundColor: color }}>
+          {question}
+        </div>
+        <div className="back" style={{ backgroundColor: color }}>
+          {answer}
+        </div>
       </div>
     </div>
   );

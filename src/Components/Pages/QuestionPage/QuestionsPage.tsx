@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import Header from "../Header/Header";
+import Header from "../../Header/Header";
+import "./question-page.scss";
 
 interface Question {
   question: string;
   options: string[];
-  answer: number; // agora é number
-}
-
-interface QuizResponse {
-  quiz: Question[];
-  error?: string;
+  answer: number;
+  explanation?: string;
 }
 
 function QuestionsPage() {
@@ -22,8 +19,15 @@ function QuestionsPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const userId = searchParams.get("userId") || "guest";
-  const contentId = searchParams.get("contentId") || "EXEMPLO_CONTENT_ID";
+  const contentId = searchParams.get("contentId") || "sessionId";
   const text = searchParams.get("text") || "";
+  const difficulty = searchParams.get("difficulty") || "easy";
+  
+  useEffect(() => {
+    if (text.trim()) {
+      generateQuestions();
+    }
+  }, [text]);
 
   const generateQuestions = async () => {
     setLoading(true);
@@ -41,7 +45,7 @@ function QuestionsPage() {
       const response = await fetch("http://localhost:3000/generate-quiz", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, userId, contentId }),
+        body: JSON.stringify({ text, userId, contentId, difficulty }),
       });
 
       const data = await response.json();
@@ -76,31 +80,21 @@ function QuestionsPage() {
       )
     : 0;
 
+  const classifyScore = (percentage: number): string => {
+    if (percentage < 40) return "Precisa estudar mais.";
+    if (percentage >= 40 && percentage <= 69) return "Continue estudando";
+    if (percentage >= 70 && percentage <= 90) return "À caminho da maestria";
+    return "Mestre no assunto";
+  };
+
   return (
     <>
       <Header user={null} />
-      <main style={{ padding: "1rem" }}>
-        <h1>🧩 Simulado</h1>
+      <main className="simulate-page">
+        <h1 className="simulate-title">Simulado</h1>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
-
-        {questions.length === 0 && (
-          <button
-            onClick={generateQuestions}
-            disabled={loading || !text.trim()}
-            style={{
-              padding: "0.75rem 1.5rem",
-              fontSize: "1rem",
-              cursor: "pointer",
-              borderRadius: "8px",
-              backgroundColor: "#007bff",
-              color: "white",
-              border: "none",
-            }}
-          >
-            {loading ? "Gerando questões..." : "Gerar Questões"}
-          </button>
-        )}
+        {error && <p className="error-message">{error}</p>}
+        {loading && <p className="loading-message">Gerando questões...</p>}
 
         {questions.length > 0 && (
           <form
@@ -108,95 +102,73 @@ function QuestionsPage() {
               e.preventDefault();
               handleSubmit();
             }}
-            style={{ marginTop: "1rem" }}
           >
             {questions.map((q, index) => (
-              <div
-                key={index}
-                style={{
-                  marginBottom: "1.5rem",
-                  padding: "1rem",
-                  border: "1px solid #ccc",
-                  borderRadius: "8px",
-                }}
-              >
+              <div className="question-card" key={index}>
                 <p>
                   <strong>
                     {index + 1}. {q.question}
                   </strong>
                 </p>
-
                 {q.options.map((opt, i) => (
                   <label
                     key={i}
-                    style={{
-                      display: "block",
-                      marginBottom: "0.25rem",
-                      cursor: "pointer",
-                    }}
+                    className={`options-label ${
+                      userAnswers[index] === i ? "selected" : ""
+                    }`}
                   >
                     <input
                       type="radio"
                       name={`question-${index}`}
-                      value={i + 1}
-                      checked={userAnswers[index] === i + 1}
-                      onChange={() => handleOptionChange(index, i + 1)}
+                      checked={userAnswers[index] === i}
+                      onChange={() => handleOptionChange(index, i)}
                       disabled={submitted}
-                    />{" "}
+                    />
                     {opt}
                   </label>
                 ))}
-
                 {submitted && (
-                  <p
-                    style={{
-                      color:
-                        userAnswers[index] === q.answer ? "green" : "crimson",
-                      marginTop: "0.5rem",
-                    }}
-                  >
-                    {userAnswers[index] === q.answer
-                      ? "✅ Correto!"
-                      : `❌ Errado. Resposta certa: ${q.options[q.answer - 1]}`}
-                  </p>
+                  <>
+                    <p
+                      className={`feedback ${
+                        userAnswers[index] === q.answer ? "correct" : "wrong"
+                      }`}
+                    >
+                      {userAnswers[index] === q.answer ? (
+                        "Correto!"
+                      ) : (
+                        <>
+                          Errado.
+                          <br />
+                          Resposta certa: {q.options[q.answer]}
+                        </>
+                      )}
+                    </p>
+                    {q.explanation && (
+                      <p className="explanation">Explicação: {q.explanation}</p>
+                    )}
+                  </>
                 )}
               </div>
             ))}
 
             {!submitted ? (
-              <button
-                type="submit"
-                style={{
-                  padding: "0.75rem 1.5rem",
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                  backgroundColor: "#28a745",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "8px",
-                }}
-              >
+              <button type="submit" className="submit-btn">
                 Enviar Respostas
               </button>
             ) : (
-              <div style={{ marginTop: "1rem" }}>
+              <div className="results">
                 <h3>
-                  🏁 Resultado: {score} de {questions.length} acertos (
+                  Resultado: {score} de {questions.length} acertos (
                   {((score / questions.length) * 100).toFixed(0)}%)
                 </h3>
-                <button
-                  onClick={generateQuestions}
-                  style={{
-                    padding: "0.75rem 1.5rem",
-                    marginTop: "1rem",
-                    fontSize: "1rem",
-                    cursor: "pointer",
-                    borderRadius: "8px",
-                    backgroundColor: "#007bff",
-                    color: "white",
-                    border: "none",
-                  }}
-                >
+                <p>
+                  Classificação:{" "}
+                  <strong>
+                    {classifyScore((score / questions.length) * 100)}
+                  </strong>
+                </p>
+                <button onClick={generateQuestions} className="new-quiz-btn">
                   Gerar Novo Simulado
                 </button>
               </div>

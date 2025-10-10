@@ -2,10 +2,52 @@
 
 .user-part {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100vh;
+  border-bottom: 1px solid #cfcfcf;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.promo-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  padding: 2rem;
+}
+
+.promo-title {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-orientation: mixed;
+  letter-spacing: 1px;
+  color: vars.$purple;
+  margin-top: 13%;
+}
+
+.promo-word {
+  display: block;
+  margin: 1rem 0;
+  background: linear-gradient(45deg, #83349e, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 4.8rem;
+}
+
+.word-1 {
+  transform: rotate(0deg);
+}
+
+.word-2 {
+  transform: rotate(0deg);
+}
+
+.word-3 {
+  transform: rotate(0deg);
 }
 
 .user-wrapper {
@@ -16,7 +58,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #282a36;
   z-index: 10;
 }
 
@@ -45,7 +86,7 @@
   resize: none;
   line-height: 1.2;
   overflow-y: auto;
-  
+
   &:focus {
     outline: none;
   }
@@ -76,7 +117,6 @@
 
   &:disabled {
     background-color: vars.$gray-dark;
-    color: vars.$white;
     cursor: not-allowed;
   }
 }

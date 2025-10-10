@@ -7,7 +7,7 @@ header {
   width: vars.$w-full;
   height: vars.$header-height;
   z-index: 10;
-  background-color: vars.$background;
+  background-color: vars.$clean-white;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 
@@ -36,10 +36,14 @@ header {
   display: flex;
   border-radius: vars.$radius-md;
   color: vars.$purple;
-  background-color: vars.$white;
+  background-color: var(--white);
 }
 
 .logo {
   width: 9.5rem;
   height: auto;
+}
+
+.about-section {
+  text-decoration: none;
 }

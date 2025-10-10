@@ -1,0 +1,48 @@
+@use "../../styles/variables" as vars;
+
+.overview-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.overview-title {
+  font-size: 2rem;
+  color: vars.$purple;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.overview-card {
+  width: 50%;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+  margin-bottom: 3rem;
+}
+
+.overview-card:hover {
+  transform: translateY(-4px);
+}
+
+.overview-text {
+  color: vars.$black;
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.overview-loading {
+  color: #888;
+  font-style: italic;
+}
+
+.overview-empty {
+  color: #aaa;
+}

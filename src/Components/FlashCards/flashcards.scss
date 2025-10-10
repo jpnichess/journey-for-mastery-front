@@ -1,5 +1,13 @@
 @use "../../styles/variables" as vars;
 
+.flashcard-section {
+  width: 100%;
+  height: 100%;
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #cfcfcf;
+}
+
 .flashcard-list {
   display: flex;
   flex-wrap: wrap;
@@ -7,6 +15,7 @@
   justify-content: center;
   width: 60%;
   align-items: center;
+  margin-bottom: 4rem;
 }
 
 .flashcard-wrapper {
@@ -19,42 +28,64 @@
 
 .flashcard {
   width: 18rem;
-  height: 10rem;
+  height: 14rem;
   perspective: 1000px;
   cursor: pointer;
+  position: relative;
 }
 
-.flashcard > div {
+.flashcard-inner {
+  position: relative;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard .front,
+.flashcard .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: vars.$white;
   padding: 1rem;
-  color: #fff;
-  background: var(--card-bg, #282a36); 
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   backface-visibility: hidden;
-  transition:
-    transform 0.5s,
-    background 0.4s ease;
-  position: absolute;
-  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .flashcard .front {
   transform: rotateY(0deg);
 }
 
-.flashcard.flipped .front {
-  transform: rotateY(180deg);
-}
-
 .flashcard .back {
   transform: rotateY(180deg);
 }
 
-.flashcard.flipped .back {
-  transform: rotateY(0deg);
+.flashcard-title {
+  color: vars.$purple;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.flashcard-loading {
+  color: #888;
+  font-style: italic;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.flashcard-empty {
+  color: #aaa;
+  margin-top: 2rem;
+  font-size: 1rem;
 }

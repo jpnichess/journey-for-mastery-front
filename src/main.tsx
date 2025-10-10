@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import QuestionsPage from "./Components/Pages/QuestionsPage";
+import QuestionsPage from "./Components/Pages/QuestionPage/QuestionsPage";
 import "./styles/global.scss";
-import ContentPage from "./Components/Pages/ContentPage";
 
 const router = createBrowserRouter([
   {
@@ -14,10 +13,6 @@ const router = createBrowserRouter([
   {
     path: "/questions",
     element: <QuestionsPage />,
-  },
-  {
-    path: "/contents-detail",
-    element: <ContentPage />,
   },
 ]);
 

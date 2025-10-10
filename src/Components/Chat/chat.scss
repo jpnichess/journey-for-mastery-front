@@ -1,0 +1,109 @@
+@use "../../styles/variables" as vars;
+
+.chat-main {
+  display: flex;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  flex-direction: column;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 1.3rem;
+}
+
+.chat-title{
+  border-bottom: 1px solid #cfcfcf;
+  color: vars.$purple;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  max-height: 80vh;
+  width: 55%;
+  border: none;
+  border-radius: 12px;
+  background-color: vars.$white;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: vars.$white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-card {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  word-break: break-word;
+  line-height: 1.4rem;
+  font-size: 0.95rem;
+}
+
+.message-card.user {
+  background-color: vars.$light-purple;
+  color: vars.$white;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+.message-card.bot {
+  background-color: vars.$light-gray;
+  color: vars.$black;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+.chat-input-wrapper {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #ddd;
+  background-color: vars.$clean-white;
+}
+
+.chat-input-form {
+  display: flex;
+  gap: 0.6rem;
+    background-color: vars.$clean-white;
+  margin-bottom: 1.3rem;
+  margin-right: 0.8rem;
+}
+
+.chat-textarea {
+  flex: 1;
+  resize: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: vars.$radius-lg;
+  font-size: 0.95rem;
+  border: none;
+  line-height: 1.3rem;
+  max-height: 150px;
+  background-color: #fff;
+}
+
+.chat-textarea:focus {
+  outline: none;
+  border-color: vars.$green;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.chat-send-button {
+  padding: 0 1rem;
+  border: none;
+  border-radius: vars.$radius-lg;
+  background-color: vars.$green;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chat-send-button:hover {
+  background-color: #45a049;
+}

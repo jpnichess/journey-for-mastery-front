@@ -15,53 +15,59 @@ function FlashcardList({ text }: FlashcardListProps) {
   const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const colors = [
-    "#FFD166", 
-    "#EF476F", 
-    "#06D6A0", 
-    "#118AB2", 
-    "#073B4C", 
-  ];
+  const colors = ["#FFE169", "#FF6F91", "#70E000", "#4CC9F0", "#6C8EBF"];
 
   useEffect(() => {
     async function generateFlashcards() {
       setLoading(true);
 
-      const response = await fetch("http://localhost:3000/generate-flashcards", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sessionId: "SESSAO_FIXA_POR_ENQUANTO",
-          text,
-        }),
-      });
+      try {
+        const response = await fetch(
+          "http://localhost:3000/generate-flashcards",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sessionId: "sessionId", text }),
+          }
+        );
 
-      const data = await response.json();
-      setFlashcards(data.flashcards || []);
-      setLoading(false);
+        const data = await response.json();
+        setFlashcards(data.flashcards || []);
+      } catch (err) {
+        console.error(err);
+        setFlashcards([]);
+      } finally {
+        setLoading(false);
+      }
     }
 
     generateFlashcards();
   }, [text]);
 
-  if (loading) return <p>Gerando flashcards...</p>;
-  if (flashcards.length === 0) return null;
-
   return (
-    <div className="flashcard-wrapper">
-      <h1 className="flashcard-title">Geração de Flashcards</h1>
-      <div className="flashcard-list">
-        {flashcards.map((f, i) => {
-          const color = colors[i % colors.length]; 
-          return (
-            <Cards
-              key={i}
-              question={f.question}
-              answer={f.answer}
-              color={color} 
-            />
-          );
-        })}
+    <div className="flashcard-section">
+      <div className="flashcard-wrapper">
+        <h1 className="flashcard-title">Geração de Flashcards</h1>
+
+        {loading ? (
+          <p className="flashcard-loading">Gerando flashcards...</p>
+        ) : flashcards.length === 0 ? (
+          <p className="flashcard-empty">Nenhum flashcard disponível.</p>
+        ) : (
+          <div className="flashcard-list">
+            {flashcards.map((f, i) => {
+              const color = colors[i % colors.length];
+              return (
+                <Cards
+                  key={i}
+                  question={f.question}
+                  answer={f.answer}
+                  color={color}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

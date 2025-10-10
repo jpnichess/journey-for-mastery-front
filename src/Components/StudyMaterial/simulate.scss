@@ -1,0 +1,61 @@
+@use "../../styles/variables" as vars;
+
+.simulate-wrapper {
+  text-align: center;
+  margin-top: 3rem;
+  height: 40vh;
+  width: 100%;
+  flex-direction: column;
+
+}
+
+.simulate-title {
+  font-size: 2rem;
+  color: vars.$purple;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  width: fit-content; 
+  margin-left: auto;
+  margin-right: auto; 
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.difficulty-btn {
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: white;
+}
+
+.simulate-label{
+  font-size: 1.1rem;
+}
+
+.difficulty-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.difficulty-btn.easy {
+  background-color: #28a745;
+}
+
+.difficulty-btn.medium {
+  background-color: #ffc107;
+}
+
+.difficulty-btn.hard {
+  background-color: #dc3545;
+}
