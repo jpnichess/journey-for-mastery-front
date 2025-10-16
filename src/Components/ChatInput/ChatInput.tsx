@@ -42,13 +42,9 @@ function ChatInput({ onSend }: { onSend: (msg: string) => void }) {
 
   return (
     <div className="user-part">
-      <div className="promo-div">
-        <h3 className="promo-title">
-          Submit your content and start your <br />
-          <span className="promo-word word-1">Journey</span>
-          <span className="promo-word word-2">For</span>
-          <span className="promo-word word-3">Mastery</span>
-        </h3>
+      <div className="label-div">
+        {" "}
+        <h1 className="label-title">Envie o material de estudos</h1>
       </div>
       <form onSubmit={onFormSubmit} className="user-form">
         <textarea
@@ -60,9 +56,11 @@ function ChatInput({ onSend }: { onSend: (msg: string) => void }) {
           rows={1}
           onKeyDown={handleKeyDown}
         />
-        <button type="submit" className="send-button">
-          Enviar material de estudo
-        </button>
+        <div className="form-bottom">
+          <button type="submit" className="send-button">
+            Enviar material de estudo
+          </button>
+        </div>
       </form>
     </div>
   );

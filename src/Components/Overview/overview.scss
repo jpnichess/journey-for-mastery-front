@@ -20,15 +20,10 @@
 
 .overview-card {
   width: 50%;
-  background: var(--white);
+  background: vars.$white;
   border-radius: 10px;
   padding: 1.5rem;
-  transition: transform 0.2s ease;
   margin-bottom: 3rem;
-}
-
-.overview-card:hover {
-  transform: translateY(-4px);
 }
 
 .overview-text {

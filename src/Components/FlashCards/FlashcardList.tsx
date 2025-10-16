@@ -17,7 +17,13 @@ function FlashcardList({ text }: FlashcardListProps) {
   const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const colors = ["#FFE169", "#FF6F91", "#70E000", "#4CC9F0", "#6C8EBF"];
+  const colors = [
+    "#FFD000",
+    "#FF6F91",
+    "#70E000",
+    "#4CC9F0",
+    "#6C8EBF",
+  ];
 
   useEffect(() => {
     async function generateFlashcards() {
@@ -50,6 +56,7 @@ function FlashcardList({ text }: FlashcardListProps) {
     <div className="flashcard-section">
       <div className="flashcard-wrapper">
         <h1 className="flashcard-title">Geração de Flashcards</h1>
+        <div className="flash-colors"></div>
 
         {loading ? (
           <p className="flashcard-loading">Gerando flashcards...</p>
