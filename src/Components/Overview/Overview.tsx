@@ -22,6 +22,7 @@ function Overview({ text, userId, contentId }: OverviewProps) {
 Você é um assistente de estudos. Receba o conteúdo que vou enviar e gere um resumo objetivo.
 
 Instruções:
+- Use, no máximo, 600 caracteres por resposta.
 - Use somente o texto fornecido — não adicione informações externas.
 - Destaque os principais pontos.
 - Organize em parágrafos curtos ou tópicos numerados.
